@@ -3,34 +3,30 @@
 This `markdown-magic` transform generates a dynamic file tree in your markdown files. It's an extended version of the built-in `fileTree` transform, with additional options for customizing the output.
 
 <!-- doc-gen BADGES style=for-the-badge -->
-
 [![npm version](https://img.shields.io/npm/v/markdown-magic-transform-treefile-extended.svg?style=for-the-badge)](https://www.npmjs.com/package/markdown-magic-transform-treefile-extended) [![npm downloads](https://img.shields.io/npm/dw/markdown-magic-transform-treefile-extended.svg?style=for-the-badge)](https://www.npmjs.com/package/markdown-magic-transform-treefile-extended) [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://www.npmjs.com/package/markdown-magic-transform-treefile-extended) [![actions status](https://img.shields.io/github/actions/workflow/status/ioncakephper/markdown-magic-transform-treefile-extended/ci.yml?branch=main&style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/actions) [![codecov](https://img.shields.io/codecov/c/github/ioncakephper/markdown-magic-transform-treefile-extended?branch=main&style=for-the-badge)](https://codecov.io/gh/ioncakephper/markdown-magic-transform-treefile-extended) [![release](https://img.shields.io/github/v/release/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/releases) [![maintained](https://img.shields.io/github/commit-activity/y/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/graphs/commit-activity) [![stars](https://img.shields.io/github/stars/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/stargazers) [![forks](https://img.shields.io/github/forks/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/network/members) [![watchers](https://img.shields.io/github/watchers/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/watchers) [![last commit](https://img.shields.io/github/last-commit/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commits) [![contributors](https://img.shields.io/github/contributors/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/graphs/contributors) [![issues](https://img.shields.io/github/issues/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/issues) [![pull requests](https://img.shields.io/github/issues-pr/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/pulls) [![repo size](https://img.shields.io/github/repo-size/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended) [![top language](https://img.shields.io/github/languages/top/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended) [![languages](https://img.shields.io/github/languages/count/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/search?l=)
-
 <!-- end-doc-gen -->
 
 ## Table of Contents
 
 <!-- doc-gen TOC -->
-
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Show File Sizes](#show-file-sizes)
-  - [Show Descriptions](#show-descriptions)
-  - [Show File Sizes and Descriptions](#show-file-sizes-and-descriptions)
-  - [Show Descriptions from File](#show-descriptions-from-file)
-  - [Custom Root Label](#custom-root-label)
-  - [Maximum Depth](#maximum-depth)
-  - [Only Directories](#only-directories)
-  - [Only Files](#only-files)
-  - [Flat Tree](#flat-tree)
-  - [Exclude Files](#exclude-files)
-  - [Pattern Matching](#pattern-matching)
-- [Options](#options)
-- [Contributing](#contributing)
-- [Helper Scripts](#helper-scripts)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-- [Project Structure](#project-structure)
+- [markdown-magic-transform-treefile-extended](#markdown-magic-transform-treefile-extended)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Examples](#examples)
+      - [Basic Usage](#basic-usage)
+      - [Show File Sizes Use the `showSize` option to display the size of each](#show-file-sizes-use-the-showsize-option-to-display-the-size-of-each)
+      - [Show Descriptions](#show-descriptions)
+      - [Show File Sizes and Descriptions](#show-file-sizes-and-descriptions)
+      - [Maximum Depth Use the `maxDepth` option to limit the depth of the file](#maximum-depth-use-the-maxdepth-option-to-limit-the-depth-of-the-file)
+      - [Only Directories](#only-directories)
+      - [Only Files](#only-files)
+      - [Exclude Files](#exclude-files)
+      - [Pattern Matching](#pattern-matching)
+  - [Options](#options)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
+  - [Project Structure](#project-structure)
 <!-- end-doc-gen -->
 
 ## Installation
@@ -74,10 +70,12 @@ npm install markdown-magic-transform-treefile-extended
     ```html
     <!-- __doc-gen__ fileTreeExtended -->
     ```
+
     <!-- doc-gen fileTreeExtended -->
     ```
     markdown-magic-transform-treefile-extended/
     ├── _descriptions.json
+    ├── CHANGELOG.md
     ├── CONTRIBUTING.md
     ├── eslint.config.mjs
     ├── index.js
@@ -89,12 +87,11 @@ npm install markdown-magic-transform-treefile-extended
     └── RULES_OF_CONDUCT.md
     ```
     <!-- end-doc-gen -->
-    ````
+  
+
     ```html
     <!-- __end-doc-gen__ -->
-    ````
-
-````
+    ```
 
 ### Examples
 
@@ -104,13 +101,13 @@ This is the default output of the transform.
 
 ```html
 <!-- __doc-gen__ fileTreeExtended -->
-````
+```
 
 <!-- doc-gen fileTreeExtended -->
-
 ```
 markdown-magic-transform-treefile-extended/
 ├── _descriptions.json
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── eslint.config.mjs
 ├── index.js
@@ -121,66 +118,91 @@ markdown-magic-transform-treefile-extended/
 ├── README.md
 └── RULES_OF_CONDUCT.md
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Show File Sizes Use the `showSize` option to display the size of each
-file. ```html
+``` 
+
+#### Show File Sizes Use the `showSize` option to display the size of each
+file. 
+
+```html
 <!-- __doc-gen__ fileTreeExtended showSize=true -->
-`````
+```
 
 <!-- doc-gen fileTreeExtended showSize=true -->
-
 ```
 markdown-magic-transform-treefile-extended/
-├── _descriptions.json (698 B)
+├── _descriptions.json (708 B)
+├── CHANGELOG.md (671 B)
 ├── CONTRIBUTING.md (1.1 KB)
-├── eslint.config.mjs (1.1 KB)
-├── index.js (7.6 KB)
+├── eslint.config.mjs (1.2 KB)
+├── index.js (7.8 KB)
 ├── LICENSE (1.1 KB)
 ├── markdown-magic.config.js (1.8 KB)
-├── package-lock.json (330.0 KB)
-├── package.json (3.1 KB)
-├── README.md (25.2 KB)
+├── package-lock.json (339.1 KB)
+├── package.json (3.2 KB)
+├── README.md (23.2 KB)
 └── RULES_OF_CONDUCT.md (829 B)
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Show Descriptions Use the `showDescriptions` option to display the
+```
+
+
+#### Show Descriptions 
+
+Use the `showDescriptions` option to display the
 descriptions of files and folders. The descriptions are sourced from the
 `descriptions` property in `transformDefaults.fileTreeExtended` in your
 `markdown-magic.config.js` file.
 
-<!-- doc-gen CODE src="markdown-magic.config.js" -->
-```js module.exports = { transformDefaults: { BADGES: { style: 'for-the-badge',
-}, fileTreeExtended: { descriptions: { '.qodo': 'Qodana is a static analysis
-tool that can be used to find bugs and improve code quality.', node_modules:
-"This directory contains all the project's dependencies.", '.gitignore': 'This
-file specifies which files and folders should be ignored by Git.',
-'CONTRIBUTING.md': 'This file provides guidelines for contributing to the
-project.', 'index.js': 'This is the main entry point of the `fileTreeExtended`
-transform.', LICENSE: "This file contains the project's license information.",
-'markdown-magic.config.js': 'This is the configuration file for
-`markdown-magic`.', 'package-lock.json': 'This file is automatically generated
-for any operations where `npm` modifies either the `node_modules` tree, or
-`package.json`.', 'package.json': 'This file contains metadata about the project
-and its dependencies.', 'README.md': 'This file provides a general overview of
-the project.', '_descriptions.json': 'This JSON file contains descriptions for
-files to be used in the dynamic file tree.', 'eslint.config.mjs': 'This is the
-configuration file for ESLint, a tool for identifying and reporting on patterns
-found in ECMAScript/JavaScript code.', 'RULES_OF_CONDUCT.md': "This file
-outlines the rules of conduct for the project's community.", }, }, },
-transforms: { SCRIPTS: require('markdown-magic-scripts'), BADGES:
-require('markdown-magic-transform-badges'), ACKNOWLEDGEMENTS:
-require('markdown-magic-transform-acknowledgements'), fileTreeExtended:
-require('./index'), }, };
-`````
-
+<!-- doc-gen CODE src="markdown-magic.config.js" language=js -->
+```js
+module.exports = {
+  transformDefaults: {
+    BADGES: {
+      style: 'for-the-badge',
+    },
+    fileTreeExtended: {
+      descriptions: {
+        '.qodo':
+          'Qodana is a static analysis tool that can be used to find bugs and improve code quality.',
+        node_modules: "This directory contains all the project's dependencies.",
+        '.gitignore':
+          'This file specifies which files and folders should be ignored by Git.',
+        'CONTRIBUTING.md':
+          'This file provides guidelines for contributing to the project.',
+        'index.js':
+          'This is the main entry point of the `fileTreeExtended` transform.',
+        LICENSE: "This file contains the project's license information.",
+        'markdown-magic.config.js':
+          'This is the configuration file for `markdown-magic`.',
+        'package-lock.json':
+          'This file is automatically generated for any operations where `npm` modifies either the `node_modules` tree, or `package.json`.',
+        'package.json':
+          'This file contains metadata about the project and its dependencies.',
+        'README.md': 'This file provides a general overview of the project.',
+        '_descriptions.json':
+          'This JSON file contains descriptions for files to be used in the dynamic file tree.',
+        'eslint.config.mjs':
+          'This is the configuration file for ESLint, a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.',
+        'RULES_OF_CONDUCT.md':
+          "This file outlines the rules of conduct for the project's community.",
+      },
+    },
+  },
+  transforms: {
+    SCRIPTS: require('markdown-magic-scripts'),
+    BADGES: require('markdown-magic-transform-badges'),
+    ACKNOWLEDGEMENTS: require('markdown-magic-transform-acknowledgements'),
+    fileTreeExtended: require('./index'),
+  },
+};
+```
 <!-- end-doc-gen -->
 
 ```html
@@ -188,10 +210,10 @@ require('./index'), }, };
 ```
 
 <!-- doc-gen fileTreeExtended showDescriptions=true -->
-
 ```
 markdown-magic-transform-treefile-extended/
 ├── _descriptions.json          # This JSON file contains descriptions for files to be used in the dynamic file tree.
+├── CHANGELOG.md
 ├── CONTRIBUTING.md             # This file provides guidelines for contributing to the project.
 ├── eslint.config.mjs           # This is the configuration file for ESLint, a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 ├── index.js                    # This is the main entry point of the `fileTreeExtended` transform.
@@ -202,35 +224,38 @@ markdown-magic-transform-treefile-extended/
 ├── README.md                   # This file provides a general overview of the project.
 └── RULES_OF_CONDUCT.md         # This file outlines the rules of conduct for the project's community.
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Show File Sizes and Descriptions Use both `showSize` and
+```
+
+#### Show File Sizes and Descriptions
+
+Use both `showSize` and
 `showDescriptions` to display both the size and description of each file. The
 descriptions are sourced from the `descriptions` property in
 `transformDefaults.fileTreeExtended` in your `markdown-magic.config.js` file.
+
 ```html
 <!-- __doc-gen__ fileTreeExtended showSize=true showDescriptions=true -->
-`````
+```
 
 <!-- doc-gen fileTreeExtended showSize=true showDescriptions=true -->
-
 ```
 markdown-magic-transform-treefile-extended/
-├── _descriptions.json (698 B)           # This JSON file contains descriptions for files to be used in the dynamic file tree.
+├── _descriptions.json (708 B)           # This JSON file contains descriptions for files to be used in the dynamic file tree.
+├── CHANGELOG.md (671 B)
 ├── CONTRIBUTING.md (1.1 KB)             # This file provides guidelines for contributing to the project.
-├── eslint.config.mjs (1.1 KB)           # This is the configuration file for ESLint, a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-├── index.js (7.6 KB)                    # This is the main entry point of the `fileTreeExtended` transform.
+├── eslint.config.mjs (1.2 KB)           # This is the configuration file for ESLint, a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+├── index.js (7.8 KB)                    # This is the main entry point of the `fileTreeExtended` transform.
 ├── LICENSE (1.1 KB)                     # This file contains the project's license information.
 ├── markdown-magic.config.js (1.8 KB)    # This is the configuration file for `markdown-magic`.
-├── package-lock.json (330.0 KB)         # This file is automatically generated for any operations where `npm` modifies either the `node_modules` tree, or `package.json`.
-├── package.json (3.1 KB)                # This file contains metadata about the project and its dependencies.
-├── README.md (25.2 KB)                  # This file provides a general overview of the project.
+├── package-lock.json (339.1 KB)         # This file is automatically generated for any operations where `npm` modifies either the `node_modules` tree, or `package.json`.
+├── package.json (3.2 KB)                # This file contains metadata about the project and its dependencies.
+├── README.md (23.2 KB)                  # This file provides a general overview of the project.
 └── RULES_OF_CONDUCT.md (829 B)          # This file outlines the rules of conduct for the project's community.
 ```
-
 <!-- end-doc-gen -->
 
 `````html
@@ -241,10 +266,10 @@ descriptions from an external JSON file. ```html
 `````
 
 <!-- doc-gen fileTreeExtended showDescriptions=true descriptionsFile="_descriptions.json" -->
-
 ```
 markdown-magic-transform-treefile-extended/
 ├── _descriptions.json          # This JSON file contains descriptions for files to be used in the dynamic file tree.
+├── CHANGELOG.md
 ├── CONTRIBUTING.md             # This file provides guidelines for contributing to the project.
 ├── eslint.config.mjs           # This is the configuration file for ESLint, a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 ├── index.js                    # This is the main entry point of the `fileTreeExtended` transform.
@@ -255,7 +280,6 @@ markdown-magic-transform-treefile-extended/
 ├── README.md                   # This file provides a general overview of the project.
 └── RULES_OF_CONDUCT.md         # This file outlines the rules of conduct for the project's community.
 ```
-
 <!-- end-doc-gen -->
 
 `````html
@@ -266,10 +290,10 @@ root of the file tree. ```html
 `````
 
 <!-- doc-gen fileTreeExtended root="My Project" -->
-
 ```
 My Project
 ├── _descriptions.json
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── eslint.config.mjs
 ├── index.js
@@ -280,21 +304,24 @@ My Project
 ├── README.md
 └── RULES_OF_CONDUCT.md
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Maximum Depth Use the `maxDepth` option to limit the depth of the file
-tree. ```html
+```
+
+#### Maximum Depth Use the `maxDepth` option to limit the depth of the file
+tree. 
+
+```html
 <!-- __doc-gen__ fileTreeExtended maxDepth=1 -->
-`````
+```
 
 <!-- doc-gen fileTreeExtended maxDepth=1 -->
-
 ```
 markdown-magic-transform-treefile-extended/
 ├── _descriptions.json
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── eslint.config.mjs
 ├── index.js
@@ -305,21 +332,26 @@ markdown-magic-transform-treefile-extended/
 ├── README.md
 └── RULES_OF_CONDUCT.md
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Only Directories Use the `dirsOnly` option to show only directories in
-the file tree. ```html
+```
+
+#### Only Directories
+
+ Use the `dirsOnly` option to show only directories in
+the file tree. 
+
+```html
 <!-- __doc-gen__ fileTreeExtended dirsOnly=true -->
-`````
+```
 
 <!-- doc-gen fileTreeExtended dirsOnly=true -->
-
 ```
 markdown-magic-transform-treefile-extended/
 ├── _descriptions.json
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── eslint.config.mjs
 ├── index.js
@@ -330,21 +362,26 @@ markdown-magic-transform-treefile-extended/
 ├── README.md
 └── RULES_OF_CONDUCT.md
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Only Files Use the `filesOnly` option to show only files in the file
-tree. ```html
+```
+
+#### Only Files 
+
+Use the `filesOnly` option to show only files in the file
+tree.
+
+```html
 <!-- __doc-gen__ fileTreeExtended filesOnly=true -->
-`````
+```
 
 <!-- doc-gen fileTreeExtended filesOnly=true -->
-
 ```
 markdown-magic-transform-treefile-extended/
 ├── _descriptions.json
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── eslint.config.mjs
 ├── index.js
@@ -355,19 +392,24 @@ markdown-magic-transform-treefile-extended/
 ├── README.md
 └── RULES_OF_CONDUCT.md
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Flat Tree Use the `flat` option to render a flat list instead of a
-tree. ```html
+`` 
+
+#### Flat Tree 
+
+Use the `flat` option to render a flat list instead of a
+tree. 
+
+```html
 <!-- __doc-gen__ fileTreeExtended flat=true -->
-`````
+```
 
 <!-- doc-gen fileTreeExtended flat=true -->
-
 ```
+CHANGELOG.md
 CONTRIBUTING.md
 eslint.config.mjs
 index.js
@@ -379,21 +421,26 @@ README.md
 RULES_OF_CONDUCT.md
 _descriptions.json
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Exclude Files Use the `exclude` option to exclude files or directories
-from the output. ```html
+``` 
+
+#### Exclude Files
+
+ Use the `exclude` option to exclude files or directories
+from the output. 
+
+```html
 <!-- __doc-gen__ fileTreeExtended exclude="['package.json', 'package-lock.json']" -->
-`````
+```
 
 <!-- doc-gen fileTreeExtended exclude="['package.json', 'package-lock.json']" -->
-
 ```
 markdown-magic-transform-treefile-extended/
 ├── _descriptions.json
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── eslint.config.mjs
 ├── index.js
@@ -402,27 +449,36 @@ markdown-magic-transform-treefile-extended/
 ├── README.md
 └── RULES_OF_CONDUCT.md
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` #### Pattern Matching Use the `pattern` option to include only files and
-directories that match a glob pattern. ```html
+``` 
+
+#### Pattern Matching
+
+Use the `pattern` option to include only files and
+directories that match a glob pattern. 
+
+```html
 <!-- __doc-gen__ fileTreeExtended pattern="['**/*.js']" -->
-`````
+```
 
 <!-- doc-gen fileTreeExtended pattern="['**/*.js']" -->
-
 ```
 markdown-magic-transform-treefile-extended/
 ```
-
 <!-- end-doc-gen -->
 
-`````html
+```html
 <!-- __end-doc-gen__ -->
-```` ## Options Options can be provided in two ways: 1. **In the HTML comment:**
+``` 
+
+## Options 
+
+Options can be provided in two ways: 
+
+1. **In the HTML comment:**
 Options can be added as `key=value` or `"key"="value"` pairs in the `<!-- __doc-gen__ -->`
 comment. For example: ```html
 <!-- __doc-gen__ fileTreeExtended showSize=true root="My Project" -->
@@ -455,10 +511,11 @@ short: - Open issues for bugs or feature requests with clear reproduction steps.
 PR against `main`. ## Helper Scripts
 
 <!-- doc-gen SCRIPTS format=list -->
-- `docs` — Generate documentation by processing README.md with markdown-magic.
-(line [13](./package.json#L13)) ```bash npx markdown-magic **/*.md --config
-./markdown-magic.config.js
-`````
+- `docs` — Generate documentation by processing README.md with markdown-magic. (line [13](./package.json#L13))
+
+  ```bash
+  npx markdown-magic **/*.md --config ./markdown-magic.config.js
+  ```
 
 - `fix` — Automatically fix linting issues and format codebase. (line [8](./package.json#L8))
 
@@ -501,7 +558,6 @@ PR against `main`. ## Helper Scripts
   ```bash
   jest --passWithNoTests
   ```
-
   <!-- end-doc-gen -->
 
 ## License
@@ -511,7 +567,6 @@ This project is licensed under the terms of the MIT License. See the [`LICENSE`]
 ## Acknowledgments
 
 <!-- doc-gen ACKNOWLEDGEMENTS style=for-the-badge -->
-
 - [@eslint/js](https://www.npmjs.com/package/%40eslint%2Fjs) — ESLint JavaScript language implementation
 - [@eslint/markdown](https://www.npmjs.com/package/%40eslint%2Fmarkdown) — The official ESLint language plugin for Markdown
 - [cross-spawn](https://www.npmjs.com/package/cross-spawn) — Cross platform child_process#spawn and child_process#spawnSync
@@ -521,7 +576,7 @@ This project is licensed under the terms of the MIT License. See the [`LICENSE`]
 - [fast-glob](https://www.npmjs.com/package/fast-glob) — It's a very fast and efficient glob library for Node.js
 - [jest](https://www.npmjs.com/package/jest) — Delightful JavaScript Testing.
 - [jsonc-eslint-parser](https://www.npmjs.com/package/jsonc-eslint-parser) — JSON, JSONC and JSON5 parser for use with ESLint plugins
-- [markdown-eslint-parser](https://www.npmjs.com/package/markdown-eslint-parser) — The ESLint custom parser for \*.md files.
+- [markdown-eslint-parser](https://www.npmjs.com/package/markdown-eslint-parser) — The ESLint custom parser for *.md files.
 - [markdown-magic](https://www.npmjs.com/package/markdown-magic) — Automatically update markdown files with content from external sources
 - [markdown-magic-scripts](https://www.npmjs.com/package/markdown-magic-scripts) — Automatically generate a dynamic, customizable dashboard of your npm scripts in your README.md using this markdown-magic transform. Keep your project documentation in sync with your package.json.
 - [markdown-magic-transform-acknowledgements](https://www.npmjs.com/package/markdown-magic-transform-acknowledgements) — A markdown-magic transform that auto-generates an Acknowledgements section for contributors, dependencies, and custom entries.
@@ -533,10 +588,10 @@ This project is licensed under the terms of the MIT License. See the [`LICENSE`]
 ## Project Structure
 
 <!-- doc-gen fileTreeExtended root="Root" showDescriptions=true showSize=false -->
-
 ```
 Root
 ├── _descriptions.json          # This JSON file contains descriptions for files to be used in the dynamic file tree.
+├── CHANGELOG.md
 ├── CONTRIBUTING.md             # This file provides guidelines for contributing to the project.
 ├── eslint.config.mjs           # This is the configuration file for ESLint, a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 ├── index.js                    # This is the main entry point of the `fileTreeExtended` transform.
@@ -547,5 +602,4 @@ Root
 ├── README.md                   # This file provides a general overview of the project.
 └── RULES_OF_CONDUCT.md         # This file outlines the rules of conduct for the project's community.
 ```
-
 <!-- end-doc-gen -->
