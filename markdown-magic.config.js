@@ -1,5 +1,3 @@
-const fileTreeExtended = require('./index');
-
 module.exports = {
   transformDefaults: {
     BADGES: {
@@ -24,6 +22,10 @@ module.exports = {
         'package.json':
           'This file contains metadata about the project and its dependencies.',
         'README.md': 'This file provides a general overview of the project.',
+        '_descriptions.json':
+          'This JSON file contains descriptions for files to be used in the dynamic file tree.',
+        'eslint.config.mjs':
+          'This is the configuration file for ESLint, a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.',
         'RULES_OF_CONDUCT.md':
           "This file outlines the rules of conduct for the project's community.",
       },

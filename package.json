@@ -80,5 +80,19 @@
   "discussions": "https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/discussions",
   "dependencies": {
     "fast-glob": "^3.3.3"
-  }
+  },
+  "files": [
+    "index.js",
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "RULES_OF_CONDUCT.md",
+    "README.md"
+  ],
+  "keywords": [
+    "markdown-magic",
+    "markdown-magic-transform",
+    "tree",
+    "file-tree",
+    "extended"
+  ]
 }
