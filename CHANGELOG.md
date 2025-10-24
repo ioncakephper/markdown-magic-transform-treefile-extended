@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.0.3...v1.0.4) (2025-10-24)
+
+
+### Bug Fixes
+
+* **readme:** remove blank lines from generated sections ([6f995b3](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/6f995b3e44f5693728e6ec584796d7d4ca40c250))
+
 ## [1.0.3](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.0.2...v1.0.3) (2025-10-24)
 
 
