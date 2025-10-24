@@ -1,0 +1,10 @@
+{
+  "CONTRIBUTING.md": "This file provides guidelines for contributing to the project.",
+  "index.js": "This is the main entry point of the `fileTreeExtended` transform.",
+  "LICENSE": "This file contains the project's license information.",
+  "_descriptions.json": "This JSON file contains descriptions for files to be used in the dynamic file tree.",
+  "markdown-magic.config.js": "This is the configuration file for `markdown-magic`.",
+  "package.json": "This file contains metadata about the project and its dependencies.",
+  "README.md": "This file provides a general overview of the project.",
+  "RULES_OF_CONDUCT.md": "This file outlines the rules of conduct for the project's community."
+}
