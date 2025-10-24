@@ -1,0 +1,20 @@
+{
+  "name": "markdown-magic-transform-treefile-extended",
+  "version": "0.1.0",
+  "description": "A markdown-magic transform to generate a dynamic file tree in your markdown files. This extended version provides additional options for customizing the output.",
+  "main": "index.js",
+  "scripts": {
+    "docs": "npx markdown-magic **/*.md --config ./markdown-magic.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "markdown-magic-scripts": "^1.4.0",
+    "markdown-magic-transform-acknowledgements": "^1.1.1",
+    "markdown-magic-transform-badges": "^1.1.5"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.3"
+  }
+}
