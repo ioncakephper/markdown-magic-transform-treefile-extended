@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.0.0...v1.0.1) (2025-10-24)
+
+
+### Bug Fixes
+
+* **readme:** update and refine file tree examples ([2e39e41](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/2e39e41826db26d8c17d83f41298d9718a583c84))
+
 ## 1.0.0 (2025-10-24)
 
 
