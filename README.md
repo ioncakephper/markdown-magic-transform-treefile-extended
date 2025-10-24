@@ -3,29 +3,86 @@
 This `markdown-magic` transform generates a dynamic file tree in your markdown files. It's an extended version of the built-in `fileTree` transform, with additional options for customizing the output.
 
 <!-- doc-gen BADGES style=for-the-badge -->
+
 [![npm version](https://img.shields.io/npm/v/markdown-magic-transform-treefile-extended.svg?style=for-the-badge)](https://www.npmjs.com/package/markdown-magic-transform-treefile-extended) [![npm downloads](https://img.shields.io/npm/dw/markdown-magic-transform-treefile-extended.svg?style=for-the-badge)](https://www.npmjs.com/package/markdown-magic-transform-treefile-extended) [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://www.npmjs.com/package/markdown-magic-transform-treefile-extended) [![actions status](https://img.shields.io/github/actions/workflow/status/ioncakephper/markdown-magic-transform-treefile-extended/ci.yml?branch=main&style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/actions) [![codecov](https://img.shields.io/codecov/c/github/ioncakephper/markdown-magic-transform-treefile-extended?branch=main&style=for-the-badge)](https://codecov.io/gh/ioncakephper/markdown-magic-transform-treefile-extended) [![release](https://img.shields.io/github/v/release/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/releases) [![maintained](https://img.shields.io/github/commit-activity/y/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/graphs/commit-activity) [![stars](https://img.shields.io/github/stars/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/stargazers) [![forks](https://img.shields.io/github/forks/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/network/members) [![watchers](https://img.shields.io/github/watchers/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/watchers) [![last commit](https://img.shields.io/github/last-commit/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commits) [![contributors](https://img.shields.io/github/contributors/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/graphs/contributors) [![issues](https://img.shields.io/github/issues/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/issues) [![pull requests](https://img.shields.io/github/issues-pr/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/pulls) [![repo size](https://img.shields.io/github/repo-size/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended) [![top language](https://img.shields.io/github/languages/top/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended) [![languages](https://img.shields.io/github/languages/count/ioncakephper/markdown-magic-transform-treefile-extended?style=for-the-badge)](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/search?l=)
+
 <!-- end-doc-gen -->
 
+## Installation
+
+Install the package using npm:
+
+```bash
+npm install markdown-magic-transform-treefile-extended
+```
+
+## Usage
+
+1.  **Add an HTML comment to your `README.md`:**
+
+    This comment will be replaced by the file tree.
+
+    ```html
+    <!-- __doc-gen__ fileTreeExtended -->
+    <!-- __end-doc-gen__ -->
+    ```
+
+2.  **Create and configure the transform in `markdown-magic.config.js`:**
+
+    ```javascript
+    const fileTreeExtended = require('markdown-magic-transform-treefile-extended');
+
+    module.exports = {
+      transforms: {
+        fileTreeExtended,
+      },
+    };
+    ```
+
+3.  **Run the `markdown-magic` command:**
+
+    ```bash
+    npx markdown-magic README.md --config markdown-magic.config.js
+    ```
+
+4.  **README.md should now look like this:**
+    ```html
+    <!-- doc-gen fileTreeExtended -->
+    ```
+
+    ```
+    markdown-magic-transform-treefile-extended/
+    ├── CONTRIBUTING.md
+    ├── eslint.config.mjs
+    ├── index.js
+    ├── LICENSE
+    ├── markdown-magic.config.js
+    ├── package-lock.json
+    ├── package.json
+    ├── README.md
+    └── RULES_OF_CONDUCT.md
+    ```
+    ```html
+    <!-- end-doc-gen -->
+    ```
 
 ## Options
 
-| Option             | Type                   | Default                     | Description |
-|--------------------|------------------------|-----------------------------|-------------|
-| `descriptions`     | `object` or `function` | `{}`                        | Map or function to provide descriptions for files/folders |
-| `descriptionsFile` | `string` or `null`     | `null`                      | Path to external JSON file with descriptions |
-| `dirsOnly`         | `boolean`              | `false`                     | Include only directories in the output |
-| `exclude`          | `string[]`             | `[]`                        | List of paths to exclude from output |
-| `filesOnly`        | `boolean`              | `false`                     | Include only files in the output |
-| `flat`             | `boolean`              | `false`                     | Render a flat list instead of a tree |
-| `ignore`           | `string[]`             | `["node_modules"]`          | Glob patterns to ignore |
-| `maxDepth`         | `number` or `undefined`| `undefined`                 | Maximum folder depth to scan |
-| `pattern`          | `string[]`             | `["**/*"]`                  | Glob pattern(s) to include |
-| `root`             | `string` or `undefined`| `basename(dir) + "/"`       | Custom label for the root node |
-| `showDescriptions` | `boolean`              | `true`                      | Whether to show descriptions next to entries |
-| `showSize`         | `boolean`              | `false`                     | Whether to show file sizes in parentheses |
-| `dir`              | `string`               | `process.cwd()`             | Root directory to scan |
-
-
+| Option             | Type                    | Default               | Description                                               |
+| ------------------ | ----------------------- | --------------------- | --------------------------------------------------------- |
+| `descriptions`     | `object` or `function`  | `{}`                  | Map or function to provide descriptions for files/folders |
+| `descriptionsFile` | `string` or `null`      | `null`                | Path to external JSON file with descriptions              |
+| `dirsOnly`         | `boolean`               | `false`               | Include only directories in the output                    |
+| `exclude`          | `string[]`              | `[]`                  | List of paths to exclude from output                      |
+| `filesOnly`        | `boolean`               | `false`               | Include only files in the output                          |
+| `flat`             | `boolean`               | `false`               | Render a flat list instead of a tree                      |
+| `ignore`           | `string[]`              | `["node_modules"]`    | Glob patterns to ignore                                   |
+| `maxDepth`         | `number` or `undefined` | `undefined`           | Maximum folder depth to scan                              |
+| `pattern`          | `string[]`              | `["**/*"]`            | Glob pattern(s) to include                                |
+| `root`             | `string` or `undefined` | `basename(dir) + "/"` | Custom label for the root node                            |
+| `showDescriptions` | `boolean`               | `true`                | Whether to show descriptions next to entries              |
+| `showSize`         | `boolean`               | `false`               | Whether to show file sizes in parentheses                 |
+| `dir`              | `string`                | `process.cwd()`       | Root directory to scan                                    |
 
 ## Contributing
 
@@ -34,46 +91,94 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for details on how to raise issues, pro
 - Open issues for bugs or feature requests with clear reproduction steps.
 - For code contributions, fork the repo, create a branch, add tests, and open a PR against `main`.
 
-
 ## Helper Scripts
 
-
 <!-- doc-gen SCRIPTS format=list -->
-- `docs` (line [7](./package.json#L7))
+
+- `docs` — Generate documentation by processing README.md with markdown-magic. (line [13](./package.json#L13))
 
   ```bash
   npx markdown-magic **/*.md --config ./markdown-magic.config.js
   ```
 
-- `test` (line [8](./package.json#L8))
+- `fix` — Automatically fix linting issues and format codebase. (line [8](./package.json#L8))
 
   ```bash
-  echo "Error: no test specified" && exit 1
+  npm run lint:fix && npm run format && npm run format:package
   ```
-<!-- end-doc-gen -->
 
+- `format` — Format all project files using Prettier. (line [9](./package.json#L9))
+
+  ```bash
+  prettier --write .
+  ```
+
+- `format:package` — Format the package.json file using Prettier. (line [10](./package.json#L10))
+
+  ```bash
+  prettier --write package.json
+  ```
+
+- `lint` — Lint all project files to ensure code quality and consistency. (line [11](./package.json#L11))
+
+  ```bash
+  eslint . --ext .js,.json,.yaml,.yml,.md
+  ```
+
+- `lint:fix` — Lint all project files and automatically fix issues where possible. (line [12](./package.json#L12))
+
+  ```bash
+  eslint . --ext .js,.json,.yaml,.yml,.md --fix
+  ```
+
+- `prep` — Prepare the project for publishing by generating docs and formatting code. (line [14](./package.json#L14))
+
+  ```bash
+  npm run docs && npm run fix
+  ```
+
+- `test` — Run the test suite using Jest. (line [7](./package.json#L7))
+
+  ```bash
+  jest --passWithNoTests
+  ```
+
+  <!-- end-doc-gen -->
 
 ## License
-
 
 This project is licensed under the terms of the MIT License. See the [`LICENSE`](LICENSE) file for details.
 
 ## Acknowledgments
 
 <!-- doc-gen ACKNOWLEDGEMENTS style=for-the-badge -->
+
+- [@eslint/js](https://www.npmjs.com/package/%40eslint%2Fjs) — ESLint JavaScript language implementation
+- [@eslint/markdown](https://www.npmjs.com/package/%40eslint%2Fmarkdown) — The official ESLint language plugin for Markdown
+- [cross-spawn](https://www.npmjs.com/package/cross-spawn) — Cross platform child_process#spawn and child_process#spawnSync
+- [eslint](https://www.npmjs.com/package/eslint) — An AST-based pattern checker for JavaScript.
+- [eslint-plugin-json](https://www.npmjs.com/package/eslint-plugin-json) — eslint plugin for JSON files
+- [eslint-plugin-yaml](https://www.npmjs.com/package/eslint-plugin-yaml) — Lint YAML files
 - [fast-glob](https://www.npmjs.com/package/fast-glob) — It's a very fast and efficient glob library for Node.js
+- [jest](https://www.npmjs.com/package/jest) — Delightful JavaScript Testing.
+- [jsonc-eslint-parser](https://www.npmjs.com/package/jsonc-eslint-parser) — JSON, JSONC and JSON5 parser for use with ESLint plugins
+- [markdown-eslint-parser](https://www.npmjs.com/package/markdown-eslint-parser) — The ESLint custom parser for \*.md files.
+- [markdown-magic](https://www.npmjs.com/package/markdown-magic) — Automatically update markdown files with content from external sources
 - [markdown-magic-scripts](https://www.npmjs.com/package/markdown-magic-scripts) — Automatically generate a dynamic, customizable dashboard of your npm scripts in your README.md using this markdown-magic transform. Keep your project documentation in sync with your package.json.
 - [markdown-magic-transform-acknowledgements](https://www.npmjs.com/package/markdown-magic-transform-acknowledgements) — A markdown-magic transform that auto-generates an Acknowledgements section for contributors, dependencies, and custom entries.
 - [markdown-magic-transform-badges](https://www.npmjs.com/package/markdown-magic-transform-badges) — No description available
+- [prettier](https://www.npmjs.com/package/prettier) — Prettier is an opinionated code formatter
+- [yaml-eslint-parser](https://www.npmjs.com/package/yaml-eslint-parser) — A YAML parser that produces output compatible with ESLint
 <!-- end-doc-gen -->
-
 
 ## Project Structure
 
 <!-- doc-gen fileTreeExtended root="Root" showDescriptions=true showSize=false -->
+
 ```
 Root
 ├── CONTRIBUTING.md             # This file provides guidelines for contributing to the project.
+├── eslint.config.mjs
 ├── index.js                    # This is the main entry point of the `fileTreeExtended` transform.
 ├── LICENSE                     # This file contains the project's license information.
 ├── markdown-magic.config.js    # This is the configuration file for `markdown-magic`.
@@ -82,4 +187,5 @@ Root
 ├── README.md                   # This file provides a general overview of the project.
 └── RULES_OF_CONDUCT.md         # This file outlines the rules of conduct for the project's community.
 ```
+
 <!-- end-doc-gen -->

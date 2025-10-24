@@ -1,6 +1,6 @@
-const fg = require("fast-glob");
-const fs = require("fs");
-const path = require("path");
+const fg = require('fast-glob');
+const fs = require('fs');
+const path = require('path');
 
 // Markdown Magic Transform: File Tree Renderer
 //
@@ -19,7 +19,6 @@ const path = require("path");
 // - showSize              (boolean)             Default: false    Whether to show file sizes in parentheses
 // - dir                   (string)              Default: process.cwd()  Root directory to scan
 
-
 /**
  * Markdown Magic Transform: File Tree Renderer
  *
@@ -34,8 +33,8 @@ const path = require("path");
 function fileTreeExtended({ transform, options = {}, settings = {} }) {
   const defaultOptions = {
     dir: process.cwd(),
-    pattern: ["**/*"],
-    ignore: ["node_modules"],
+    pattern: ['**/*'],
+    ignore: ['node_modules'],
     maxDepth: undefined,
     filesOnly: false,
     dirsOnly: false,
@@ -80,7 +79,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
       ? descriptionsFile
       : path.join(dir, descriptionsFile);
     if (fs.existsSync(fullPath)) {
-      externalDescriptions = JSON.parse(fs.readFileSync(fullPath, "utf8"));
+      externalDescriptions = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
     }
   }
 
@@ -102,7 +101,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
     const isFile = stat?.isFile();
     const isDir = stat?.isDirectory();
 
-    let sizeStr = "";
+    let sizeStr = '';
     if (showSize && isFile) {
       const size = stat.size;
       if (size < 1024) sizeStr = `(${size} B)`;
@@ -112,21 +111,21 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
 
     allEntries.push({
       path: relPath,
-      parts: relPath.split("/"),
+      parts: relPath.split('/'),
       sizeStr,
       isFile,
       isDir,
     });
 
     // Add all parent folders explicitly
-    const parts = relPath.split("/");
+    const parts = relPath.split('/');
     for (let i = 1; i < parts.length; i++) {
-      const folderPath = parts.slice(0, i).join("/");
+      const folderPath = parts.slice(0, i).join('/');
       if (!allEntries.some((e) => e.path === folderPath)) {
         allEntries.push({
           path: folderPath,
           parts: parts.slice(0, i),
-          sizeStr: "",
+          sizeStr: '',
           isFile: false,
           isDir: true,
         });
@@ -148,19 +147,19 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
       let line = entry;
 
       let desc =
-        typeof descriptions === "function"
+        typeof descriptions === 'function'
           ? descriptions(p)
           : descriptions?.[p] || externalDescriptions?.[p];
 
       if (showDescriptions && desc) {
-        const padding = " ".repeat(longest - entry.length + 8);
-        line += padding + "# " + desc;
+        const padding = ' '.repeat(longest - entry.length + 8);
+        line += padding + '# ' + desc;
       }
 
       lines.push(line);
     }
 
-    return "```\n" + lines.join("\n") + "\n```";
+    return '```\n' + lines.join('\n') + '\n```';
   }
 
   // Build tree
@@ -175,7 +174,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
 
       if (!node[part]._meta) {
         node[part]._meta = {
-          path: parts.slice(0, i + 1).join("/"),
+          path: parts.slice(0, i + 1).join('/'),
           isDir: !isFile || !isLeaf,
         };
       }
@@ -189,67 +188,66 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
     }
   }
 
-  const longestEntryLength = (node, prefix = "") => {
+  const longestEntryLength = (node, prefix = '') => {
     let max = 0;
     for (const key of Object.keys(node)) {
-      if (key === "_meta") continue;
+      if (key === '_meta') continue;
       const meta = node[key]._meta || {};
       const entry = meta.sizeStr
         ? `${prefix}${key} ${meta.sizeStr}`
         : `${prefix}${key}`;
       max = Math.max(max, entry.length);
-      max = Math.max(max, longestEntryLength(node[key], prefix + "    "));
+      max = Math.max(max, longestEntryLength(node[key], prefix + '    '));
     }
     return max;
   };
 
   const lines = [];
-  const rootLabel = root || path.basename(dir) + "/";
+  const rootLabel = root || path.basename(dir) + '/';
   lines.push(rootLabel);
 
   const maxLength = longestEntryLength(tree);
 
-  const render = (node, prefix = "", maxLength) => {
-    const keys = Object.keys(node).filter((k) => k !== "_meta");
+  const render = (node, prefix = '', maxLength) => {
+    const keys = Object.keys(node).filter((k) => k !== '_meta');
 
     const folders = keys
       .filter((k) => node[k]._meta?.isDir !== false)
-      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "case" }));
+      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'case' }));
     const files = keys
       .filter((k) => node[k]._meta?.isDir === false)
-      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "case" }));
+      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'case' }));
 
     const sortedKeys = [...folders, ...files];
 
     sortedKeys.forEach((key, index) => {
       const child = node[key];
       const last = index === sortedKeys.length - 1;
-      const branch = last ? "└── " : "├── ";
-      const nextPrefix = prefix + (last ? "    " : "│   ");
+      const branch = last ? '└── ' : '├── ';
+      const nextPrefix = prefix + (last ? '    ' : '│   ');
 
       const meta = child._meta || {};
       const entry = meta.sizeStr ? `${key} ${meta.sizeStr}` : key;
       const line = prefix + branch + entry;
 
       let desc =
-        typeof descriptions === "function"
+        typeof descriptions === 'function'
           ? descriptions(meta.path || key)
           : descriptions?.[meta.path || key] ||
             externalDescriptions?.[meta.path || key];
 
-      const padded = showDescriptions && desc
-        ? line + " ".repeat(maxLength - line.length + 8) + "# " + desc
-        : line;
+      const padded =
+        showDescriptions && desc
+          ? line + ' '.repeat(maxLength - line.length + 8) + '# ' + desc
+          : line;
 
       lines.push(padded);
       render(child, nextPrefix, maxLength);
     });
   };
 
-  render(tree, "", maxLength);
-  return "```\n" + lines.join("\n") + "\n```";
-
+  render(tree, '', maxLength);
+  return '```\n' + lines.join('\n') + '\n```';
 }
 
 module.exports = fileTreeExtended;
-
