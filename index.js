@@ -8,14 +8,15 @@ const path = require('path');
 // - descriptions          (object | function)   Default: {}       Map or function to provide descriptions for files/folders
 // - descriptionsFile      (string | null)       Default: null     Path to external JSON file with descriptions
 // - dirsOnly              (boolean)             Default: false    Include only directories in the output
-// - exclude               (string[])            Default: []       List of paths to exclude from output
+// - exclude               (string[])            Default: ['node_modules', '.git', '.github', '.vscode', '.DS_Store']       List of paths to exclude from output
 // - filesOnly             (boolean)             Default: false    Include only files in the output
 // - flat                  (boolean)             Default: false    Render a flat list instead of a tree
 // - ignore                (string[])            Default: ["node_modules"]  Glob patterns to ignore
 // - maxDepth              (number | undefined)  Default: undefined  Maximum folder depth to scan
 // - pattern               (string[])            Default: ["**/*"] Glob pattern(s) to include
 // - root                  (string | undefined)  Default: basename(dir) + "/"  Custom label for the root node
-// - showDescriptions      (boolean)             Default: true     Whether to show descriptions next to entries
+// - showDescriptions      (boolean)             Default: false    Whether to show descriptions next to entries
+// - showHidden            (boolean)             Default: true     Whether to show hidden files/folders
 // - showSize              (boolean)             Default: false    Whether to show file sizes in parentheses
 // - dir                   (string)              Default: process.cwd()  Root directory to scan
 
@@ -34,7 +35,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
   const defaultOptions = {
     dir: process.cwd(),
     pattern: ['**/*'],
-    ignore: ['node_modules'],
+    ignore: ['node_modules', '.git', '.github', '.vscode', '.DS_Store'],
     maxDepth: undefined,
     filesOnly: false,
     dirsOnly: false,
@@ -45,6 +46,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
     descriptions: {},
     descriptionsFile: null,
     flat: false,
+    showHidden: true,
   };
 
   const globalOptions =
@@ -71,6 +73,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
     descriptions,
     descriptionsFile,
     flat,
+    showHidden,
   } = opts;
 
   let externalDescriptions = {};
@@ -90,6 +93,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
       onlyFiles: false,
       onlyDirectories: false,
       deep: maxDepth,
+      dot: showHidden,
     })
     .filter((p) => !exclude.includes(p));
 

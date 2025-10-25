@@ -2,18 +2,16 @@
 
 ## [1.0.4](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.0.3...v1.0.4) (2025-10-24)
 
-
 ### Bug Fixes
 
-* **readme:** remove blank lines from generated sections ([6f995b3](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/6f995b3e44f5693728e6ec584796d7d4ca40c250))
+- **readme:** remove blank lines from generated sections ([6f995b3](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/6f995b3e44f5693728e6ec584796d7d4ca40c250))
 
 ## [1.0.3](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.0.2...v1.0.3) (2025-10-24)
 
-
 ### Bug Fixes
 
-* **readme:** update and refine file tree examples ([1c9cd5f](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/1c9cd5fa0dc46d4657be280aef2ebd131e765a38))
-* **readme:** update and refine file tree examples ([47d6735](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/47d6735121cd57e2e2d57581422d1de188860446))
+- **readme:** update and refine file tree examples ([1c9cd5f](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/1c9cd5fa0dc46d4657be280aef2ebd131e765a38))
+- **readme:** update and refine file tree examples ([47d6735](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/47d6735121cd57e2e2d57581422d1de188860446))
 
 ## [1.0.2](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.0.1...v1.0.2) (2025-10-24)
 
