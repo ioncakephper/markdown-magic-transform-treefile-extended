@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.1.1...v1.1.2) (2025-10-25)
+
+
+### Bug Fixes
+
+* **readme:** update installation command to use --save-dev ([a8df571](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/a8df5713cde2f593cddf0d98031804c102697109))
+
 ## [1.1.1](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.1.0...v1.1.1) (2025-10-25)
 
 
