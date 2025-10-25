@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.0.4...v1.1.0) (2025-10-25)
+
+
+### Features
+
+* add showHidden option to fileTreeExtended ([ab5fdab](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/ab5fdabca2d0b065e0fbfc9fd21a53e89f23f700))
+* **config:** Update default ignore patterns for file tree ([4a849a5](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/4a849a588db2339bb9f1e6ba487c7c65e26be6c7))
+
 ## [1.0.4](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.0.3...v1.0.4) (2025-10-24)
 
 ### Bug Fixes
