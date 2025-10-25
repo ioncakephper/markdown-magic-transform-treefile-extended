@@ -15,7 +15,7 @@ const path = require('path');
 // - maxDepth              (number | undefined)  Default: undefined  Maximum folder depth to scan
 // - pattern               (string[])            Default: ["**/*"] Glob pattern(s) to include
 // - root                  (string | undefined)  Default: basename(dir) + "/"  Custom label for the root node
-// - showDescriptions      (boolean)             Default: true     Whether to show descriptions next to entries
+// - showDescriptions      (boolean)             Default: false    Whether to show descriptions next to entries
 // - showSize              (boolean)             Default: false    Whether to show file sizes in parentheses
 // - dir                   (string)              Default: process.cwd()  Root directory to scan
 
@@ -45,6 +45,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
     descriptions: {},
     descriptionsFile: null,
     flat: false,
+    showHidden: true,
   };
 
   const globalOptions =
@@ -71,6 +72,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
     descriptions,
     descriptionsFile,
     flat,
+    showHidden,
   } = opts;
 
   let externalDescriptions = {};
@@ -90,6 +92,7 @@ function fileTreeExtended({ transform, options = {}, settings = {} }) {
       onlyFiles: false,
       onlyDirectories: false,
       deep: maxDepth,
+      dot: showHidden,
     })
     .filter((p) => !exclude.includes(p));
 
