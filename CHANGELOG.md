@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.1.2...v1.2.0) (2025-10-26)
+
+
+### Features
+
+* **filetree:** Add exclude option to ignore paths in tree output ([dc5ef36](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/dc5ef36e6a47125779859a4dac1b2ea09290e60f))
+* **filetree:** Add exclude option to ignore paths in tree output ([9ca51cd](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/9ca51cdf4c832e0d094a72db22b484b621b0c88c))
+
 ## [1.1.2](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.1.1...v1.1.2) (2025-10-25)
 
 
