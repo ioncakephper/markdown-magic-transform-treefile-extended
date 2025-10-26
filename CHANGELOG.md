@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.2.0...v1.2.1) (2025-10-26)
+
+
+### Bug Fixes
+
+* **readme:** remove _descriptions.json from examples ([9f3615a](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/commit/9f3615a7894fffcf527c2890c5cdf7bd7d75766b))
+
 ## [1.2.0](https://github.com/ioncakephper/markdown-magic-transform-treefile-extended/compare/v1.1.2...v1.2.0) (2025-10-26)
 
 
