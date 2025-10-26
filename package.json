@@ -1,6 +1,6 @@
 {
   "name": "markdown-magic-transform-treefile-extended",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A markdown-magic transform to generate a dynamic file tree in your markdown files. This extended version provides additional options for customizing the output.",
   "main": "index.js",
   "scripts": {
