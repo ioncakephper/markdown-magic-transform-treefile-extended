@@ -4,6 +4,7 @@ module.exports = {
       style: 'for-the-badge',
     },
     fileTreeExtended: {
+      exclude: ['node_modules', '.git', '.vscode', '.DS_Store'],
       descriptions: {
         '.qodo':
           'Qodana is a static analysis tool that can be used to find bugs and improve code quality.',
